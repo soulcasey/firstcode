@@ -150,8 +150,8 @@ public class DarkSoulsTester{
                 break;
             case 2:
                 if(hp == mhp) System.out.println("Your health is already full.");
-                if(pt == 0) System.out.println("You do not have any potion.");
-                if(pt > 0) {
+                else if(pt == 0) System.out.println("You do not have any potion.");
+                else {
                     if(mhp - hp < 100) {
                         System.out.println("Healed " + (mhp - hp) + " health");
                         hp = mhp;
@@ -208,8 +208,10 @@ public class DarkSoulsTester{
                         String b3 = "Travelling to Area " + ar + "...";
                         System.out.println(Ashen.Money(sl, ar, 2000, b3));
                         if(Ashen.Money(sl, ar, 2000, b3).equals(b3))
-                        ar = ar + 1;
-                        sl = sl - (ar*2000);
+                        {
+                            ar = ar + 1;
+                            sl = sl - (ar*2000);
+                        }
                         break;
                     case 2:
                         System.out.println("Travel canceled.");
@@ -218,10 +220,11 @@ public class DarkSoulsTester{
                 break;
             case 6:
                 System.out.println("Farewell...");
+                reader.close();
                 System.exit(0);
                 
                 
+            }
+        }
     }
-}
-}
 }
